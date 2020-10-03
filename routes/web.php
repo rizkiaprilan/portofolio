@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\SertifikatController;
+use App\Models\Project;
 use App\Models\Sertifikat;
 use App\Models\Skill;
 use App\Models\Work_History;
@@ -20,6 +21,7 @@ Route::get('/', function () {
     $data = Sertifikat::all();
     $skills = Skill::all();
     $workHistory = Work_History::all();
-    return view('index', compact(['data', 'skills','workHistory']));
+    $project = Project::all();
+    return view('index', compact(['data', 'skills','workHistory','project']));
 });
 Route::get('/sertifikat', [SertifikatController::class, 'index'])->name('sertifikat');

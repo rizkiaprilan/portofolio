@@ -244,7 +244,7 @@
               Certificates
             </h3>
             <p class="subtitle-a">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Sertifikat yang pernah didapatkan
             </p>
             <div class="line-mf"></div>
           </div>
@@ -271,6 +271,45 @@
       </div>
     </div>
   </section>
+  
+  <!--/ Section project Star /-->
+  <section id="project" class="portfolio-mf sect-pt4 route">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="title-box text-center">
+            <h3 class="title-a">
+              Project
+            </h3>
+            <p class="subtitle-a">
+              Project yang pernah dibuat
+            </p>
+            <div class="line-mf"></div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        @foreach($data as $d)
+        <div class="col-md-4">
+          <div class="work-box">
+            <a href="{{ $d->link_picture }}" data-lightbox="gallery-mf">
+              <div class="work-img">
+                <img src="{{ $d->link_picture }}" alt="" class="img-fluid">
+              </div>
+              <div class="work-content">
+                <h2 class="w-title">{{ $d->name }}</h2>
+                <div class="w-more">
+                  <p>{{ $d->description }}</p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        @endforeach
+      </div>
+    </div>
+  </section>
+
   <!--/ Section certificate End /-->
 
   <!--/ Section Testimonials Star /-->
