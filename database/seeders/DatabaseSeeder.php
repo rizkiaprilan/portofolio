@@ -18,7 +18,6 @@ class DatabaseSeeder extends Seeder
             SertifikatTableSeeder::class,
             SkillsTableSeeder::class,
             WorkHistorySeeder::class,
-            ProjectSeeder::class
         ]);
     }
 }

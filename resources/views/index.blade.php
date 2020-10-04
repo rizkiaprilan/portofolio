@@ -24,6 +24,10 @@
   <!-- Main Stylesheet File -->
   <link href="{{ asset('css/style.css')}}" rel="stylesheet">
 
+  {{-- Bootstrap CSS CDN --}}
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
 </head>
 
 <body id="page-top">
@@ -41,22 +45,19 @@
       <div class="navbar-collapse collapse justify-content-end" id="navbarDefault">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link js-scroll active" href="#home">Home</a>
+            <a class="nav-link js-scroll active" href="#home">Beranda</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll" href="#about">About</a>
+            <a class="nav-link js-scroll" href="#about">Tentang Saya</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll" href="#certificate">Certificates</a>
+            <a class="nav-link js-scroll" href="#certificate">Sertifikat</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll" href="#project">Project</a>
+            <a class="nav-link js-scroll" href="#project">Projek</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll" href="#blog">Blog</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll" href="#contact">Contact</a>
+            <a class="nav-link js-scroll" href="#contact">Kontak</a>
           </li>
         </ul>
       </div>
@@ -71,11 +72,9 @@
     <div class="intro-content display-table">
       <div class="table-cell">
         <div class="container">
-          <!--<p class="display-6 color-d">Hello, world!</p>-->
           <h1 class="intro-title mb-4">Hello Readers! I am Rizki Aprilan </h1>
           <p class="intro-subtitle"><span class="text-slider-items">Web Developer,Backend Developer</span><strong
               class="text-slider"></strong></p>
-          <!-- <p class="pt-3"><a class="btn btn-primary btn js-scroll px-4" href="#about" role="button">Learn More</a></p> -->
         </div>
       </div>
     </div>
@@ -137,7 +136,7 @@
                     </h5>
                   </div>
                   @foreach($workHistory as $key=>$value)
-                  <table>
+                  <table class="table">
                     <tr>
                       <td>
                         <h5>Company: </h5>
@@ -181,59 +180,6 @@
     </div>
   </section>
 
-  <!--/ Section Services End /-->
-  {{-- <div class="section-counter paralax-mf bg-image" style="background-image: url(img/counters-bg.jpg)">
-    <div class="overlay-mf"></div>
-    <div class="container">
-      <div class="row"> --}}
-  {{-- <div class="col-sm-3 col-lg-3">
-          <div class="counter-box">
-            <div class="counter-ico">
-              <span class="ico-circle"><i class="ion-checkmark-round"></i></span>
-            </div>
-            <div class="counter-num">
-              <p class="counter">450</p>
-              <span class="counter-text">WORKS COMPLETED</span>
-            </div>
-          </div>
-        </div> --}}
-  {{-- <div class="col-sm-3 col-lg-3">
-          <div class="counter-box pt-4 pt-md-0">
-            <div class="counter-ico">
-              <span class="ico-circle"><i class="ion-ios-calendar-outline"></i></span>
-            </div>
-            <div class="counter-num">
-              <p class="counter">1</p>
-              <span class="counter-text">YEARS OF EXPERIENCE</span>
-            </div>
-          </div>
-        </div> --}}
-  {{-- <div class="col-sm-3 col-lg-3">
-          <div class="counter-box pt-4 pt-md-0">
-            <div class="counter-ico">
-              <span class="ico-circle"><i class="ion-ios-people"></i></span>
-            </div>
-            <div class="counter-num">
-              <p class="counter">550</p>
-              <span class="counter-text">TOTAL CLIENTS</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-3 col-lg-3">
-          <div class="counter-box pt-4 pt-md-0">
-            <div class="counter-ico">
-              <span class="ico-circle"><i class="ion-ribbon-a"></i></span>
-            </div>
-            <div class="counter-num">
-              <p class="counter">36</p>
-              <span class="counter-text">AWARD WON</span>
-            </div>
-          </div>
-        </div> --}}
-  {{-- </div>
-    </div>
-  </div> --}}
-
   <!--/ Section certificate Star /-->
   <section id="certificate" class="portfolio-mf sect-pt4 route">
     <div class="container">
@@ -254,7 +200,7 @@
         @foreach($data as $d)
         <div class="col-md-4">
           <div class="work-box">
-            <a href="{{ $d->link_picture }}" data-lightbox="gallery-mf">
+            <a href="{{ $d->link_picture }}" data-lightbox="gallery-mf" style="text-decoration: none">
               <div class="work-img">
                 <img src="{{ $d->link_picture }}" alt="" class="img-fluid">
               </div>
@@ -271,10 +217,10 @@
       </div>
     </div>
   </section>
-  
+
   <!--/ Section project Star /-->
   <section id="project" class="portfolio-mf sect-pt4 route">
-    <div class="container">
+    <div class="container ">
       <div class="row">
         <div class="col-sm-12">
           <div class="title-box text-center">
@@ -289,20 +235,31 @@
         </div>
       </div>
       <div class="row">
-        @foreach($data as $d)
+        @foreach ($project as $p)
         <div class="col-md-4">
-          <div class="work-box">
-            <a href="{{ $d->link_picture }}" data-lightbox="gallery-mf">
-              <div class="work-img">
-                <img src="{{ $d->link_picture }}" alt="" class="img-fluid">
+          <div class="card card-blog">
+            <div class="card-img">
+              @php
+              $temp = explode(",",$p->link_picture);
+              @endphp
+              <a href="{{ $p->link_repo }}" style="text-decoration: none"><img src="{{ $temp[0] }}" alt=""
+                  class="img-fluid"></a>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title"><a href="{{ $p->link_repo }}" style="text-decoration: none">{{ $p->name }}</a></h3>
+              <p class="card-description">
+                {{$p->description}}
+              </p>
+            </div>
+            <div class="card-footer">
+              <div class="post-author">
+                <a href="{{ $p->link_repo }}" style="text-decoration: none">
+                  <img src="https://www.flaticon.com/svg/static/icons/svg/25/25231.svg" alt=""
+                    class="avatar rounded-circle">
+                  <span class="author">Github</span>
+                </a>
               </div>
-              <div class="work-content">
-                <h2 class="w-title">{{ $d->name }}</h2>
-                <div class="w-more">
-                  <p>{{ $d->description }}</p>
-                </div>
-              </div>
-            </a>
+            </div>
           </div>
         </div>
         @endforeach
@@ -310,164 +267,8 @@
     </div>
   </section>
 
-  <!--/ Section certificate End /-->
-
-  <!--/ Section Testimonials Star /-->
-  {{-- <div class="testimonials paralax-mf bg-image" style="background-image: url(img/overlay-bg.jpg)">
-    <div class="overlay-mf"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div id="testimonial-mf" class="owl-carousel owl-theme">
-            <div class="testimonial-box">
-              <div class="author-test">
-                <img src="img/testimonial-2.jpg" alt="" class="rounded-circle b-shadow-a">
-                <span class="author">Xavi Alonso</span>
-              </div>
-              <div class="content-test">
-                <p class="description lead">
-                  Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Lorem ipsum dolor sit amet,
-                  consectetur adipiscing elit.
-                </p>
-                <span class="comit"><i class="fa fa-quote-right"></i></span>
-              </div>
-            </div>
-            <div class="testimonial-box">
-              <div class="author-test">
-                <img src="img/testimonial-4.jpg" alt="" class="rounded-circle b-shadow-a">
-                <span class="author">Marta Socrate</span>
-              </div>
-              <div class="content-test">
-                <p class="description lead">
-                  Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Lorem ipsum dolor sit amet,
-                  consectetur adipiscing elit.
-                </p>
-                <span class="comit"><i class="fa fa-quote-right"></i></span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> --}}
-
-  <!--/ Section Blog Star /-->
-  {{-- <section id="blog" class="blog-mf sect-pt4 route">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="title-box text-center">
-            <h3 class="title-a">
-              Blog
-            </h3>
-            <p class="subtitle-a">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            </p>
-            <div class="line-mf"></div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4">
-          <div class="card card-blog">
-            <div class="card-img">
-              <a href="blog-single.html"><img src="img/post-1.jpg" alt="" class="img-fluid"></a>
-            </div>
-            <div class="card-body">
-              <div class="card-category-box">
-                <div class="card-category">
-                  <h6 class="category">Travel</h6>
-                </div>
-              </div>
-              <h3 class="card-title"><a href="blog-single.html">See more ideas about Travel</a></h3>
-              <p class="card-description">
-                Proin eget tortor risus. Pellentesque in ipsum id orci porta dapibus. Praesent sapien massa, convallis
-                a pellentesque nec,
-                egestas non nisi.
-              </p>
-            </div>
-            <div class="card-footer">
-              <div class="post-author">
-                <a href="#">
-                  <img src="img/testimonial-2.jpg" alt="" class="avatar rounded-circle">
-                  <span class="author">Morgan Freeman</span>
-                </a>
-              </div>
-              <div class="post-date">
-                <span class="ion-ios-clock-outline"></span> 10 min
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card card-blog">
-            <div class="card-img">
-              <a href="blog-single.html"><img src="img/post-2.jpg" alt="" class="img-fluid"></a>
-            </div>
-            <div class="card-body">
-              <div class="card-category-box">
-                <div class="card-category">
-                  <h6 class="category">Web Design</h6>
-                </div>
-              </div>
-              <h3 class="card-title"><a href="blog-single.html">See more ideas about Travel</a></h3>
-              <p class="card-description">
-                Proin eget tortor risus. Pellentesque in ipsum id orci porta dapibus. Praesent sapien massa, convallis
-                a pellentesque nec,
-                egestas non nisi.
-              </p>
-            </div>
-            <div class="card-footer">
-              <div class="post-author">
-                <a href="#">
-                  <img src="img/testimonial-2.jpg" alt="" class="avatar rounded-circle">
-                  <span class="author">Morgan Freeman</span>
-                </a>
-              </div>
-              <div class="post-date">
-                <span class="ion-ios-clock-outline"></span> 10 min
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card card-blog">
-            <div class="card-img">
-              <a href="blog-single.html"><img src="img/post-3.jpg" alt="" class="img-fluid"></a>
-            </div>
-            <div class="card-body">
-              <div class="card-category-box">
-                <div class="card-category">
-                  <h6 class="category">Web Design</h6>
-                </div>
-              </div>
-              <h3 class="card-title"><a href="blog-single.html">See more ideas about Travel</a></h3>
-              <p class="card-description">
-                Proin eget tortor risus. Pellentesque in ipsum id orci porta dapibus. Praesent sapien massa, convallis
-                a pellentesque nec,
-                egestas non nisi.
-              </p>
-            </div>
-            <div class="card-footer">
-              <div class="post-author">
-                <a href="#">
-                  <img src="img/testimonial-2.jpg" alt="" class="avatar rounded-circle">
-                  <span class="author">Morgan Freeman</span>
-                </a>
-              </div>
-              <div class="post-date">
-                <span class="ion-ios-clock-outline"></span> 10 min
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> --}}
-  <!--/ Section Blog End /-->
-
   <!--/ Section Contact-Footer Star /-->
-  <section class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image: url(img/overlay-bg.jpg)">
+  <section class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image: url(img/footer-1.jpg)">
     <div class="overlay-mf"></div>
     <div class="container">
       <div class="row">
@@ -478,11 +279,12 @@
                 <div class="col-md-6">
                   <div class="title-box-2">
                     <h5 class="title-left">
-                      Send Message Us
+                      Kirim Email
                     </h5>
                   </div>
                   <div>
-                    <form action="" method="post" role="form" class="contactForm">
+                    <form action="{{ route('send-email') }}" method="post" role="form" class="contactForm">
+                      @csrf
                       <div id="sendmessage">Your message has been sent. Thank you!</div>
                       <div id="errormessage"></div>
                       <div class="row">
@@ -497,13 +299,6 @@
                           <div class="form-group">
                             <input type="email" class="form-control" name="email" id="email" placeholder="Your Email"
                               data-rule="email" data-msg="Please enter a valid email" />
-                            <div class="validation"></div>
-                          </div>
-                        </div>
-                        <div class="col-md-12 mb-3">
-                          <div class="form-group">
-                            <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject"
-                              data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
                             <div class="validation"></div>
                           </div>
                         </div>
@@ -524,28 +319,28 @@
                 <div class="col-md-6">
                   <div class="title-box-2 pt-4 pt-md-0">
                     <h5 class="title-left">
-                      Get in Touch
+                      Ingin tahu lebih? bisa hubungi melalui:
                     </h5>
                   </div>
                   <div class="more-info">
-                    <p class="lead">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis dolorum dolorem soluta quidem
-                      expedita aperiam aliquid at.
-                      Totam magni ipsum suscipit amet? Autem nemo esse laboriosam ratione nobis
-                      mollitia inventore?
-                    </p>
                     <ul class="list-ico">
-                      <li><span class="ion-ios-location"></span> 329 WASHINGTON ST BOSTON, MA 02108</li>
-                      <li><span class="ion-ios-telephone"></span> (617) 557-0089</li>
-                      <li><span class="ion-email"></span> contact@example.com</li>
+                      <li><span class="ion-ios-location"></span> Jl. Nimun Raya Gg. Haji Emin No.17L, Jakarta Selatan,
+                        Indonesia</li>
+                      <li><span class="ion-email"></span> riskiazza@gmail.com</li>
                     </ul>
                   </div>
                   <div class="socials">
                     <ul>
-                      <li><a href=""><span class="ico-circle"><i class="ion-social-facebook"></i></span></a></li>
-                      <li><a href=""><span class="ico-circle"><i class="ion-social-instagram"></i></span></a></li>
-                      <li><a href=""><span class="ico-circle"><i class="ion-social-twitter"></i></span></a></li>
-                      <li><a href=""><span class="ico-circle"><i class="ion-social-pinterest"></i></span></a></li>
+                      <li><a href="https://web.facebook.com/profile.php?id=100013656347803"><span class="ico-circle"><i
+                              class="ion-social-facebook"></i></span></a></li>
+                      <li><a href="https://www.instagram.com/rizkiaprilan8/"><span class="ico-circle"><i
+                              class="ion-social-instagram"></i></span></a></li>
+                      <li><a href="https://twitter.com/RizkyAprilan"><span class="ico-circle"><i
+                              class="ion-social-twitter"></i></span></a></li>
+                      <li><a href="https://www.linkedin.com/in/rizki-aprilan-080068148/"><span class="ico-circle"><i
+                              class="ion-social-linkedin"></i></span></a></li>
+                      <li><a href="https://github.com/rizkiaprilan"><span class="ico-circle"><i
+                              class="ion-social-github"></i></span></a></li>
                     </ul>
                   </div>
                 </div>
@@ -560,16 +355,7 @@
         <div class="row">
           <div class="col-sm-12">
             <div class="copyright-box">
-              <p class="copyright">&copy; Copyright <strong>DevFolio</strong>. All Rights Reserved</p>
-              <div class="credits">
-                <!--
-                  All the links in the footer should remain intact.
-                  You can delete the links only if you purchased the pro version.
-                  Licensing information: https://bootstrapmade.com/license/
-                  Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=DevFolio
-                -->
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-              </div>
+              <p class="copyright">&copy; Copyright <strong>rizkiaprilan.com</strong>. All Rights Reserved</p>
             </div>
           </div>
         </div>
@@ -597,7 +383,18 @@
 
   <!-- Template Main Javascript File -->
   <script src="{{ asset('js/main.js')}}"></script>
+  {{-- <script src="{{ asset('js/slideshow.js')}}"></script> --}}
 
+  {{-- Bootstrap JS CDN --}}
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
+  </script>
 </body>
 
 </html>

@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\SertifikatController;
+use App\Http\Controllers\EmailController;
 use App\Models\Project;
 use App\Models\Sertifikat;
 use App\Models\Skill;
@@ -23,5 +23,7 @@ Route::get('/', function () {
     $workHistory = Work_History::all();
     $project = Project::all();
     return view('index', compact(['data', 'skills','workHistory','project']));
-});
-Route::get('/sertifikat', [SertifikatController::class, 'index'])->name('sertifikat');
+}); 
+Route::post('/send-email',[EmailController::class, 'sendEmail'])->name('send-email'); 
+
+
