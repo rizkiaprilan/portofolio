@@ -27,3 +27,6 @@ Route::get('/', function () {
 Route::post('/send-email',[EmailController::class, 'sendEmail'])->name('send-email'); 
 
 
+
+
+

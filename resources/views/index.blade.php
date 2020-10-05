@@ -35,7 +35,7 @@
   <!--/ Nav Star /-->
   <nav class="navbar navbar-b navbar-trans navbar-expand-md fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll" href="#home">RizkiAprilan.com</a>
+      <a class="navbar-brand js-scroll" href="#home">rizkiaprilan17.herokuapp.com</a>
       <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault"
         aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span></span>
@@ -97,15 +97,15 @@
                   </div>
                   <div class="col-sm-6 col-md-7">
                     <div class="about-info">
-                      <p><span class="title-s">Name: </span> <span>Muhammad Rezki Aprilan</span></p>
-                      <p><span class="title-s">Profile: </span> <span>Backend Developer</span></p>
+                      <p><span class="title-s">Nama: </span> <span>Muhammad Rezki Aprilan</span></p>
+                      <p><span class="title-s">Peran Pekerjaan: </span> <span>Backend Developer</span></p>
                       <p><span class="title-s">Email: </span> <span>riskiazza@gmail.com</span></p>
-                      <p><span class="title-s">Phone: </span> <span>(617) 557-0089</span></p>
+                      <p><span class="title-s">Lahir: </span> <span>8 April 1999, Indonesia</span></p>
                     </div>
                   </div>
                 </div>
                 <div class="skill-mf">
-                  <p class="title-s">Skill</p>
+                  <p class="title-s">Kemampuan</p>
                   @foreach($skills as $s)
                   <span>{{ $s->name }}</span> <span class="pull-right">{{$s->score}}%</span>
                   <div class="progress">
@@ -120,26 +120,26 @@
                 <div class="about-me pt-4 pt-md-0">
                   <div class="title-box-2">
                     <h5 class="title-left">
-                      About me
+                      Tentang Saya
                     </h5>
                   </div>
                   <p class="lead">
-                    saya adalah lulusan dari BINUS. saat ini saya berstatus magang, yang mana saya selalu ingin belajar
-                    banyak dalam mendapatkan pengalaman bekerja. saya cukup baik dalam mencari info mengenai development
-                    suatu project dan mencoba memecahkan masalah yang ada. didalam project saya bisa tugaskan dimana
+                    Saya adalah lulusan dari BINUS. Saat ini saya berstatus magang, yang mana saya selalu ingin belajar
+                    banyak dalam mendapatkan pengalaman bekerja. Saya cukup baik dalam mencari info mengenai development
+                    suatu project dan mencoba memecahkan masalah yang ada. Didalam project saya bisa tugaskan dimana
                     saja. biasanya saya sering bekerja di backend developer tapi saya juga dapat berperan dibagian
                     akuisisi data untuk membantu normalisasi suatu data
                   </p>
                   <div class="title-box-2">
                     <h5 class="title-left">
-                      Work History
+                      Karier
                     </h5>
                   </div>
                   @foreach($workHistory as $key=>$value)
                   <table class="table">
                     <tr>
                       <td>
-                        <h5>Company: </h5>
+                        <h5>Perusahaan: </h5>
                       </td>
                       <td>
                         <h5>{{ $value->company }}</h5>
@@ -161,15 +161,26 @@
                         <h5>{{ $value->role }}</h5>
                       </td>
                     </tr>
+                    <tr>
+                      <td colspan="2">
+                        <h5>Deskripsi: </h5>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="2">
+                        @php
+                        $temp = explode(",",$value->job);
+                        @endphp
+                        <h5>
+                          <ol>
+                            @foreach ($temp as $t)
+                            <li>{{ $t }}</li>
+                            @endforeach
+                          </ol>
+                        </h5>
+                      </td>
+                    </tr>
                   </table>
-                  @php
-                  $temp = explode(",",$value->job);
-                  @endphp
-                  <ol>
-                    @foreach ($temp as $t)
-                    <li>{{ $t }}</li>
-                    @endforeach
-                  </ol>
                   @endforeach
                 </div>
               </div>
@@ -187,7 +198,7 @@
         <div class="col-sm-12">
           <div class="title-box text-center">
             <h3 class="title-a">
-              Certificates
+              Sertifikat
             </h3>
             <p class="subtitle-a">
               Sertifikat yang pernah didapatkan
@@ -225,10 +236,10 @@
         <div class="col-sm-12">
           <div class="title-box text-center">
             <h3 class="title-a">
-              Project
+              Projek
             </h3>
             <p class="subtitle-a">
-              Project yang pernah dibuat
+              Projek yang pernah dibuat
             </p>
             <div class="line-mf"></div>
           </div>
@@ -355,7 +366,7 @@
         <div class="row">
           <div class="col-sm-12">
             <div class="copyright-box">
-              <p class="copyright">&copy; Copyright <strong>rizkiaprilan.com</strong>. All Rights Reserved</p>
+              <p class="copyright">&copy; Copyright <strong>rizkiaprilan17.herokuapp.com</strong>. All Rights Reserved</p>
             </div>
           </div>
         </div>
