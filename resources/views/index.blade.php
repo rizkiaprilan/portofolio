@@ -3,13 +3,13 @@
 
 <head>
   <meta charset="utf-8">
-  <title>My Portfolio</title>
+  <title>My Portofolio</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
 
   <!-- Favicons -->
-  <link href="{{ asset('img/icon.png') }}" rel="icon">
+  <link href="{{ asset('img/icon-2.png') }}" rel="icon">
 
   <!-- Bootstrap CSS File -->
   <link href="{{ asset('lib/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -96,6 +96,7 @@
                     </div>
                   </div>
                   <div class="col-sm-6 col-md-7">
+        
                     <div class="about-info">
                       <p><span class="title-s">Nama: </span> <span>Muhammad Rezki Aprilan</span></p>
                       <p><span class="title-s">Peran Pekerjaan: </span> <span>Backend Developer</span></p>
