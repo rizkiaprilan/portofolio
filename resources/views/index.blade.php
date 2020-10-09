@@ -80,8 +80,7 @@
       <div class="table-cell">
         <div class="container">
           <h1 class="intro-title mb-4">Hallo Semuanya! Perkenalkan Namaku Rizki.</h1>
-          <p class="intro-subtitle"><span class="text-slider-items">Web Developer,Backend Developer,Software
-              Engineer</span><strong class="text-slider"></strong></p>
+          <p class="intro-subtitle"><span class="text-slider-items">Web Developer,Backend Developer,Software Engineer</span><strong class="text-slider"></strong></p>
         </div>
       </div>
     </div>
