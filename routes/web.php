@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EmailController;
+use App\Http\Controllers\HomeControllers;
 use App\Models\Project;
 use App\Models\Sertifikat;
 use App\Models\Skill;
@@ -17,13 +18,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $data = Sertifikat::all();
-    $skills = Skill::all();
-    $workHistory = Work_History::all();
-    $project = Project::all();
-    return view('index', compact(['data', 'skills','workHistory','project']));
-}); 
+Route::get('/',[HomeControllers::class, 'index'])->name('home'); 
 Route::post('/send-email',[EmailController::class, 'sendEmail'])->name('send-email'); 
 
 

@@ -24,10 +24,17 @@
   <!-- Main Stylesheet File -->
   <link href="{{ asset('css/style.css')}}" rel="stylesheet">
 
-  {{-- Bootstrap CSS CDN --}}
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <!-- CDN CSS-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.css"
+    integrity="sha512-f8gN/IhfI+0E9Fc/LKtjVq4ywfhYAVeMGKsECzDUHcFJ5teVwvKTqizm+5a84FINhfrgdvjX8hEJbem2io1iTA=="
+    crossorigin="anonymous" />
 
+  @include('sweet::alert')
+  @if (session('status'))
+  <div class="alert alert-info">
+    {{ session('status') }}
+  </div>
+  @endif
 </head>
 
 <body id="page-top">
@@ -72,9 +79,9 @@
     <div class="intro-content display-table">
       <div class="table-cell">
         <div class="container">
-          <h1 class="intro-title mb-4">Hello Readers! I am Rizki Aprilan </h1>
-          <p class="intro-subtitle"><span class="text-slider-items">Web Developer,Backend Developer</span><strong
-              class="text-slider"></strong></p>
+          <h1 class="intro-title mb-4">Hallo Semuanya! Perkenalkan Namaku Rizki.</h1>
+          <p class="intro-subtitle"><span class="text-slider-items">Web Developer,Backend Developer,Software
+              Engineer</span><strong class="text-slider"></strong></p>
         </div>
       </div>
     </div>
@@ -96,7 +103,7 @@
                     </div>
                   </div>
                   <div class="col-sm-6 col-md-7">
-        
+
                     <div class="about-info">
                       <p><span class="title-s">Nama: </span> <span>Muhammad Rezki Aprilan</span></p>
                       <p><span class="title-s">Peran Pekerjaan: </span> <span>Backend Developer</span></p>
@@ -289,7 +296,7 @@
             <div id="contact" class="box-shadow-full">
               <div class="row">
                 <div class="col-md-6">
-                  <div class="title-box-2">
+                  <div class="  title-box-2">
                     <h5 class="title-left">
                       Kirim Email
                     </h5>
@@ -297,32 +304,33 @@
                   <div>
                     <form action="{{ route('send-email') }}" method="post" role="form" class="contactForm">
                       @csrf
-                      <div id="sendmessage">Your message has been sent. Thank you!</div>
+                      <div id="sendmessage">Terima Kasih Sudah Mengirim Pesan :)</div>
                       <div id="errormessage"></div>
                       <div class="row">
                         <div class="col-md-12 mb-3">
                           <div class="form-group">
-                            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
-                              data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                            <input type="text" name="name" class="form-control" id="name" placeholder="Nama Kamu"
+                              data-rule="minlen:4" data-msg="Tolong Masukkan Setidaknya 4 Huruf Saja" />
                             <div class="validation"></div>
                           </div>
                         </div>
                         <div class="col-md-12 mb-3">
                           <div class="form-group">
-                            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email"
-                              data-rule="email" data-msg="Please enter a valid email" />
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Email Kamu"
+                              data-rule="email" data-msg="Tolong Masukkan Email Dengan Benar" />
                             <div class="validation"></div>
                           </div>
                         </div>
                         <div class="col-md-12 mb-3">
                           <div class="form-group">
-                            <textarea class="form-control" name="message" rows="5" data-rule="required"
-                              data-msg="Please write something for us" placeholder="Message"></textarea>
+                            <textarea class="form-control" name="message" rows="5" data-rule="required" minlength="5"
+                              data-msg="Tolong Masukkan Sesuatu Untuk Saya"
+                              placeholder="Pesan Yang Ingin Disampaikan"></textarea>
                             <div class="validation"></div>
                           </div>
                         </div>
                         <div class="col-md-12">
-                          <button type="submit" class="button button-a button-big button-rouded">Send Message</button>
+                          <button type="submit" class="button button-a button-big button-rouded">Kirim Email</button>
                         </div>
                       </div>
                     </form>
@@ -367,7 +375,8 @@
         <div class="row">
           <div class="col-sm-12">
             <div class="copyright-box">
-              <p class="copyright">&copy; Copyright <strong>rizkiaprilan17.herokuapp.com</strong>. All Rights Reserved</p>
+              <p class="copyright">&copy; Copyright <strong>rizkiaprilan17.herokuapp.com</strong>. All Rights Reserved
+              </p>
             </div>
           </div>
         </div>
@@ -395,18 +404,12 @@
 
   <!-- Template Main Javascript File -->
   <script src="{{ asset('js/main.js')}}"></script>
-  {{-- <script src="{{ asset('js/slideshow.js')}}"></script> --}}
 
-  {{-- Bootstrap JS CDN --}}
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
-  </script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
-  </script>
+  <!-- CDN JS-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.js"
+    integrity="sha512-XVz1P4Cymt04puwm5OITPm5gylyyj5vkahvf64T8xlt/ybeTpz4oHqJVIeDtDoF5kSrXMOUmdYewE4JS/4RWAA=="
+    crossorigin="anonymous"></script>
+
 </body>
 
 </html>
