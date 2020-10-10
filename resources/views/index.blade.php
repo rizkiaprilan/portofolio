@@ -28,13 +28,14 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.css"
     integrity="sha512-f8gN/IhfI+0E9Fc/LKtjVq4ywfhYAVeMGKsECzDUHcFJ5teVwvKTqizm+5a84FINhfrgdvjX8hEJbem2io1iTA=="
     crossorigin="anonymous" />
-
+  {{-- 
   @include('sweet::alert')
   @if (session('status'))
   <div class="alert alert-info">
     {{ session('status') }}
   </div>
-  @endif
+  @endif --}}
+
 </head>
 
 <body id="page-top">
@@ -80,7 +81,8 @@
       <div class="table-cell">
         <div class="container">
           <h1 class="intro-title mb-4">Hallo Semuanya! Perkenalkan Namaku Rizki.</h1>
-          <p class="intro-subtitle"><span class="text-slider-items">Web Developer,Backend Developer,Software Engineer</span><strong class="text-slider"></strong></p>
+          <p class="intro-subtitle"><span class="text-slider-items">Web Developer,Backend Developer,Software
+              Engineer</span><strong class="text-slider"></strong></p>
         </div>
       </div>
     </div>
