@@ -28,13 +28,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.css"
     integrity="sha512-f8gN/IhfI+0E9Fc/LKtjVq4ywfhYAVeMGKsECzDUHcFJ5teVwvKTqizm+5a84FINhfrgdvjX8hEJbem2io1iTA=="
     crossorigin="anonymous" />
-  {{-- 
-  @include('sweet::alert')
-  @if (session('status'))
-  <div class="alert alert-info">
-    {{ session('status') }}
-  </div>
-  @endif --}}
 
 </head>
 
@@ -272,13 +265,13 @@
               </p>
             </div>
             <div class="card-footer">
-              <div class="post-author">
+              {{-- <div class="post-author"> --}}
                 <a href="{{ $p->link_repo }}" style="text-decoration: none">
                   <img src="https://www.flaticon.com/svg/static/icons/svg/25/25231.svg" alt=""
                     class="avatar rounded-circle">
                   <span class="author">Github</span>
-                </a>
-              </div>
+                </a> 
+              {{-- </div> --}}
             </div>
           </div>
         </div>
