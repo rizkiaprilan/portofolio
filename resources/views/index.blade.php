@@ -60,6 +60,11 @@
           <li class="nav-item">
             <a class="nav-link js-scroll" href="#contact">Kontak</a>
           </li>
+          @if (Route::has('login'))
+          <li class="nav-item">
+            <a class="nav-link js-scroll" href="{{ route('login') }}">Admin</a>
+          </li>
+          @endif
         </ul>
       </div>
     </div>
@@ -266,11 +271,11 @@
             </div>
             <div class="card-footer">
               {{-- <div class="post-author"> --}}
-                <a href="{{ $p->link_repo }}" style="text-decoration: none">
-                  <img src="https://www.flaticon.com/svg/static/icons/svg/25/25231.svg" alt=""
-                    class="avatar rounded-circle">
-                  <span class="author">Github</span>
-                </a> 
+              <a href="{{ $p->link_repo }}" style="text-decoration: none">
+                <img src="https://www.flaticon.com/svg/static/icons/svg/25/25231.svg" alt=""
+                  class="avatar rounded-circle">
+                <span class="author">Github</span>
+              </a>
               {{-- </div> --}}
             </div>
           </div>

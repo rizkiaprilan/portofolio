@@ -25,3 +25,7 @@ Route::post('/send-email',[EmailController::class, 'sendEmail'])->name('send-ema
 
 
 
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
