@@ -14,27 +14,26 @@ $page = 'Dashboard';
 <div style="overflow-x:auto;">
     <table id="dtHorizontalVerticalExample" class="table table-striped table-bordered table-sm " cellspacing="0"
     width="100%">
-    <!--Table head-->
     <thead>
-        <tr>
-            @foreach ($d['fieldname'] as $f)
-            <th>{{ $f }}</th>
+            <tr>
+                <th>#</th>
+                @foreach ($d['fieldname'] as $f)
+                <th>{{ $f }}</th>
+                @endforeach
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($d['data'] as $key=>$k)
+            <tr class="table-info">
+                <td>{{ $key+1 }}</td>
+                @foreach (json_decode($k) as $j)
+                {{-- @dump($j) --}}
+                <td>{{ $j }}</td>
+                @endforeach
+            </tr>
             @endforeach
-        </tr>
-    </thead>
-    <!--Table head-->
-    <!--Table body-->
-    <tbody>
-        @foreach ($d['data'] as $k)
-        <tr class="table-info">
-            @foreach (json_decode($k) as $j)
-            <td>{{ $j }}</td>
-            @endforeach
-        </tr>
-        @endforeach
-    </tbody>
-    <!--Table body-->
-</table>
+        </tbody>
+    </table>
 </div>
 @endforeach
 @endsection
