@@ -222,13 +222,21 @@
               <div class="work-img">
                 <img src="{{ $d->link_picture }}" alt="" class="img-fluid">
               </div>
-              <div class="work-content">
-                <h2 class="w-title">{{ $d->name }}</h2>
-                <div class="w-more">
-                  <p>{{ $d->description }}</p>
-                </div>
-              </div>
             </a>
+            <div class="work-content">
+              <h2 class="w-title">{{ $d->name }}</h2>
+              <div class="w-more">
+                @if(strlen($d->description) > 50)
+                <p>{{substr($d->description,0,50)}}
+                  <span class="read-more-show hide_content">More<i class="fa fa-angle-down"></i></span>
+                  <span class="read-more-content">{{substr($d->description,50,strlen($d->description))}}
+                    <span class="read-more-hide hide_content">Less<i class="fa fa-angle-up"></i></span></span>
+                </p>
+                @else
+                <p>{{$d->description}}</p>
+                @endif
+              </div>
+            </div>
           </div>
         </div>
         @endforeach
@@ -260,13 +268,21 @@
               @php
               $temp = explode(",",$p->link_picture);
               @endphp
-              <a href="{{ $p->link_repo }}" style="text-decoration: none"><img src="{{ $temp[0] }}" alt=""
-                  class="img-fluid"></a>
+              <a href="{{ $temp[0] }}" style="text-decoration: none" data-lightbox="gallery-mf">
+                <img src="{{ $temp[0] }}" alt="" class="img-fluid">
+              </a>
             </div>
             <div class="card-body">
               <h3 class="card-title"><a href="{{ $p->link_repo }}" style="text-decoration: none">{{ $p->name }}</a></h3>
               <p class="card-description">
+                @if(strlen($p->description) > 50)
+                {{substr($p->description,0,50)}}
+                <span class="read-more-show hide_content">More<i class="fa fa-angle-down"></i></span>
+                <span class="read-more-content"> {{substr($p->description,50,strlen($p->description))}}
+                  <span class="read-more-hide hide_content">Less<i class="fa fa-angle-up"></i></span> </span>
+                @else
                 {{$p->description}}
+                @endif
               </p>
             </div>
             <div class="card-footer">
