@@ -11,6 +11,8 @@
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
     <link rel="stylesheet" href="{{ asset('css/style-admin.css') }}">
+    @yield('style')
+
 
     <title>@yield('title')</title>
 </head>
@@ -20,14 +22,17 @@
 
         <!-- Sidebar -->
         <div class="bg-light border-right" id="sidebar-wrapper">
-            <div class="sidebar-heading">Start Bootstrap </div>
+            <div class="sidebar-heading">Dashboard </div>
             <div class="list-group list-group-flush">
-                <a href="#" class="list-group-item list-group-item-action bg-light">Dashboard</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Shortcuts</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Overview</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light"><i class="fas fa-users"></i>Akun</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light"><i
+                        class="fas fa-certificate"></i>Sertifikat</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light"><i
+                        class="fas fa-briefcase"></i>Karier</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light"><i
+                        class="fas fa-laptop-code"></i>Kemampuan</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light"><i
+                        class="fas fa-project-diagram"></i>Project</a>
             </div>
         </div>
         <!-- /#sidebar-wrapper -->
@@ -37,6 +42,7 @@
 
             <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
                 <button class="btn btn-primary" id="menu-toggle">Menu</button>
+
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -76,7 +82,7 @@
             </nav>
 
             <div class="container-fluid">
-                <h1 class="mt-4">Simple Sidebar</h1>
+                <h1 class="mt-4">@yield('title')</h1>
                 @yield('content')
             </div>
         </div>
@@ -100,10 +106,11 @@
     <script src="https://kit.fontawesome.com/a13873daf7.js" crossorigin="anonymous"></script>
     <script>
         $("#menu-toggle").click(function(e) {
-          e.preventDefault();
-          $("#wrapper").toggleClass("toggled");
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
         });
     </script>
+    @yield('script')
 </body>
 
 
