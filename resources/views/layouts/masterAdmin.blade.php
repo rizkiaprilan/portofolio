@@ -64,8 +64,8 @@
                                 Opsi
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Beranda</a>
-                                <a class="dropdown-item" href="#">Website</a>
+                                <a class="dropdown-item" href="{{ route('dashboard') }}">Beranda</a>
+                            <a class="dropdown-item" href="{{ route('home') }}">Website</a>
                                 <div class="dropdown-divider"></div>
                                 <!-- Authentication -->
                                 <form method="POST" action="{{ route('logout') }}">
