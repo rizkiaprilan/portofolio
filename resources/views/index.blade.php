@@ -60,6 +60,11 @@
           <li class="nav-item">
             <a class="nav-link js-scroll" href="#contact">Kontak</a>
           </li>
+          @if (Route::has('login'))
+          <li class="nav-item">
+            <a class="nav-link js-scroll" href="{{ route('login') }}">Admin</a>
+          </li>
+          @endif
         </ul>
       </div>
     </div>
