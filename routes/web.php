@@ -8,6 +8,7 @@ use App\Models\Sertifikat;
 use App\Models\Skill;
 use App\Models\User;
 use App\Models\Work_History;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Schema;
 
@@ -25,3 +26,8 @@ use Illuminate\Support\Facades\Schema;
 Route::get('/', [HomeControllers::class, 'index'])->name('home');
 Route::post('/send-email', [EmailController::class, 'sendEmail'])->name('send-email');
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [AdminControllers::class, 'dashboard'])->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->get('/akun', [AdminControllers::class, 'showAkun'])->name('akun.show');
+Route::middleware(['auth:sanctum', 'verified'])->get('/Karier', [AdminControllers::class, 'showKarier'])->name('karier.show');
+Route::middleware(['auth:sanctum', 'verified'])->get('/projek', [AdminControllers::class, 'showProjek'])->name('projek.show');
+Route::middleware(['auth:sanctum', 'verified'])->get('/kemampuan', [AdminControllers::class, 'showKemampuan'])->name('kemampuan.show');
+Route::middleware(['auth:sanctum', 'verified'])->get('/sertifikat', [AdminControllers::class, 'showSertifikat'])->name('sertifikat.show');

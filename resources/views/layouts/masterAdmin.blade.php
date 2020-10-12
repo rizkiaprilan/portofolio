@@ -22,16 +22,16 @@
 
         <!-- Sidebar -->
         <div class="bg-light border-right" id="sidebar-wrapper">
-            <div class="sidebar-heading">Dashboard </div>
+            <a href="{{ route('dashboard') }}" style="text-decoration: none"><div class="sidebar-heading">Dashboard </div></a>
             <div class="list-group list-group-flush">
-                <a href="#" class="list-group-item list-group-item-action bg-light"><i class="fas fa-users"></i>Akun</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light"><i
+                <a href="{{ route('akun.show') }}" class="list-group-item list-group-item-action bg-light"><i class="fas fa-users"></i>Akun</a>
+                <a href="{{ route('sertifikat.show') }}" class="list-group-item list-group-item-action bg-light"><i
                         class="fas fa-certificate"></i>Sertifikat</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light"><i
+                <a href="{{ route('karier.show') }}" class="list-group-item list-group-item-action bg-light"><i
                         class="fas fa-briefcase"></i>Karier</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light"><i
+                <a href="{{ route('kemampuan.show') }}" class="list-group-item list-group-item-action bg-light"><i
                         class="fas fa-laptop-code"></i>Kemampuan</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light"><i
+                <a href="{{ route('projek.show') }}" class="list-group-item list-group-item-action bg-light"><i
                         class="fas fa-project-diagram"></i>Project</a>
             </div>
         </div>

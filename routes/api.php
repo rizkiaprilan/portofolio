@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Sertifikat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,4 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::get('/sertifikat', function () {  //localhost:8000/api/sertifikat
+    return Sertifikat::all();
 });

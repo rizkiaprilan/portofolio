@@ -1,7 +1,7 @@
 @extends('layouts.masterAdmin')
 
 @php
-$page = 'Dashboard';
+$page = 'Kemampuan';
 @endphp
 
 @section('title')
