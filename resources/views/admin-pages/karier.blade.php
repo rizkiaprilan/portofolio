@@ -9,36 +9,56 @@ $page = 'Karier';
 @endsection
 
 @section('content')
-@foreach ($data as $d)
-<br>
-<caption>Table {{ $d['tablename'] }}</caption>
-<div style="overflow-x:auto;">
-    <table id="dtHorizontalVerticalExample" class="table table-striped table-bordered table-sm " cellspacing="0"
-        width="100%">
-        <thead>
-            <tr>
-                <th>#</th>
-                @foreach ($d['fieldname'] as $f)
-                <th>{{ $f }}</th>
-                @endforeach
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($d['data'] as $key=>$k)
-            <tr class="table-info">
-                <td>{{ $key+1 }}</td>
-                @foreach (json_decode($k) as $j)
-                <td>{{ $j }}</td>
-                @endforeach
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
+<!-- DataTales Example -->
+<div id="page-top">
+    @foreach ($data as $d)
+    <div class="card shadow mb-4" style="overflow-x:auto;">
+        <div class="card-header py-3">
+            <div class="row">
+                <h6 class="m-0 font-weight-bold text-primary">{{ strtoupper($d['tablename']) }}</h6>
+                <button type="button" class="btn btn-primary ml-auto ">tambah</button>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table id="dtHorizontalVerticalExample" class="table table-striped table-bordered table-sm "
+                    width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>action</th>
+                            @foreach ($d['fieldname'] as $f)
+                            <th>{{ $f }}</th>
+                            @endforeach
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($d['data'] as $k)
+                        <tr>
+                            <td>
+                                <div class="rows">
+                                    <button type="button" class="btn btn-primary">update</button>
+                                    <button type="button" class="btn btn-danger">delete</button>
+                                </div>
+                            </td>
+                            @foreach (json_decode($k) as $j)
+                            <td>{{ $j }}</td>
+                            @endforeach
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    @endforeach
 </div>
-@endforeach
+<!-- /.container-fluid -->
+
 @endsection
 
 @section('script')
+<script src="{{asset('datatables/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
 <script>
     $(document).ready(function () {
             $('#dtHorizontalVerticalExample').DataTable({
@@ -51,6 +71,7 @@ $page = 'Karier';
 @endsection
 
 @section('style')
+<link href="{{ asset('datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
 <style>
     .dtHorizontalVerticalExampleWrapper {
         max-width: 600px;

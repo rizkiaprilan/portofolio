@@ -9,7 +9,51 @@ $page = 'Dashboard';
 @endsection
 
 @section('content')
-@foreach ($data as $d)
+
+<!-- DataTales Example -->
+<div id="page-top">
+    @foreach ($data as $d)
+    <div class="card shadow mb-4" style="overflow-x:auto;">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">{{ strtoupper($d['tablename']) }}</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table  class="table table-striped table-bordered table-sm " width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>action</th>
+                            @foreach ($d['fieldname'] as $f)
+                            <th>{{ $f }}</th>
+                            @endforeach
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($d['data'] as $k)
+                        <tr>
+                            <td>
+                                <div class="rows">
+                                    <button type="button" class="btn btn-primary">update</button>
+                                    <button type="button" class="btn btn-danger">delete</button>
+                                </div>
+                            </td>
+                            @foreach (json_decode($k) as $j)
+                            <td>{{ $j }}</td>
+                            @endforeach
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    @endforeach
+</div>
+<!-- /.container-fluid -->
+
+
+
+{{-- @foreach ($data as $d)
 <br>
 <caption>Table {{ $d['tablename'] }}</caption>
 <div style="overflow-x:auto;">
@@ -35,10 +79,15 @@ $page = 'Dashboard';
         </tbody>
     </table>
 </div>
-@endforeach
+@endforeach --}}
 @endsection
 
 @section('script')
+
+<!-- Page level plugins -->
+<script src="{{asset('datatables/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
+
 <script>
     $(document).ready(function () {
             $('#dtHorizontalVerticalExample').DataTable({
@@ -51,6 +100,7 @@ $page = 'Dashboard';
 @endsection
 
 @section('style')
+<link href="{{ asset('datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
 <style>
     .dtHorizontalVerticalExampleWrapper {
         max-width: 600px;
