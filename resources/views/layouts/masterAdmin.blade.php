@@ -22,9 +22,12 @@
 
         <!-- Sidebar -->
         <div class="bg-light border-right" id="sidebar-wrapper">
-            <a href="{{ route('dashboard') }}" style="text-decoration: none"><div class="sidebar-heading">Dashboard </div></a>
+            <a href="{{ route('dashboard') }}" style="text-decoration: none">
+                <div class="sidebar-heading">Dashboard </div>
+            </a>
             <div class="list-group list-group-flush">
-                <a href="{{ route('akun.show') }}" class="list-group-item list-group-item-action bg-light"><i class="fas fa-users"></i>Akun</a>
+                <a href="{{ route('akun.show') }}" class="list-group-item list-group-item-action bg-light"><i
+                        class="fas fa-users"></i>Akun</a>
                 <a href="{{ route('sertifikat.show') }}" class="list-group-item list-group-item-action bg-light"><i
                         class="fas fa-certificate"></i>Sertifikat</a>
                 <a href="{{ route('karier.show') }}" class="list-group-item list-group-item-action bg-light"><i
@@ -64,8 +67,8 @@
                                 Opsi
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('dashboard') }}">Beranda</a>
-                            <a class="dropdown-item" href="{{ route('home') }}">Website</a>
+                                <a class="dropdown-item" href="{{ route('profile') }}">Profile</a>
+                                <a class="dropdown-item" href="{{ route('home') }}">Website</a>
                                 <div class="dropdown-divider"></div>
                                 <!-- Authentication -->
                                 <form method="POST" action="{{ route('logout') }}">

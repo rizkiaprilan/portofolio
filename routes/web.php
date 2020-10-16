@@ -31,3 +31,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/Karier', [AdminController
 Route::middleware(['auth:sanctum', 'verified'])->get('/projek', [AdminControllers::class, 'showProjek'])->name('projek.show');
 Route::middleware(['auth:sanctum', 'verified'])->get('/kemampuan', [AdminControllers::class, 'showKemampuan'])->name('kemampuan.show');
 Route::middleware(['auth:sanctum', 'verified'])->get('/sertifikat', [AdminControllers::class, 'showSertifikat'])->name('sertifikat.show');
+Route::get('/profile', function(){
+    return view('profile.show');
+})->name('profile');
